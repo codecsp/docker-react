@@ -1,4 +1,4 @@
-sudo : required
+sudo: required
 services: 
   - docker 
 
@@ -6,7 +6,7 @@ before_install:
   - docker build -t codecsp/docker-react -f Dockefile.dev .
 
 script: 
-  - docker run codecsp/docker-react -- --coverage
+  - docker run codecsp/docker-react npm run test -- --coverage
 
 
 
