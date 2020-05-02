@@ -1,13 +1,11 @@
+language: generic
 sudo: required
-services: 
-  - docker 
+
+services:
+  - docker
 
 before_install:
-  - docker build -t codecsp/docker-react -f Dockefile.dev .
+  - docker build -t codecsp/docker-react -f Dockerfile.dev .
 
-script: 
-  - docker run codecsp/docker-react npm run test -- --coverage
-
-
-
-
+script:
+  - docker run -e CI=true codecsp/docker-react npm run test
